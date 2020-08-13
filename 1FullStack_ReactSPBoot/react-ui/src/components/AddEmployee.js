@@ -30,7 +30,10 @@ const AddEmployee = () => {
     };
     console.log(addEmployee);
     EmployeeService.createEmployee(addEmployee).then( res =>{
-        cancel();
+        //after submit clear the form and stay in the same page. just practise purpose
+        setName('');   setJobRole('');   setEmail('');
+        // usual way to nagivate to employee list and show added / updated list of employee calling navigation -> cancel() no need of this.cancel. i.e functional component
+        //cancel();
     })
   }
 
@@ -42,17 +45,13 @@ const AddEmployee = () => {
   // },[])
   return (
     <div>
-      <h2> Add employee</h2>
+       
+     <h2> Add employee</h2> 
+      
       <form onSubmit={saveOrUpdateEmployee}>
         <div className="form-group">
           <label> Full Name: </label>
-          <input
-            placeholder="Full Name"
-            name="fullName"
-            className="form-control"
-            value={name}
-            type="text"
-            onChange={handleNameChange}
+          <input placeholder="Full Name" name="fullName" className="form-control" value={name} type="text" onChange={handleNameChange}
           />
         </div>
 
@@ -65,6 +64,7 @@ const AddEmployee = () => {
             <option value="Project Lead">Project Lead</option>
           </select>         
         </div>
+
         <div className="form-group">
           <label> Email : </label>
           <input placeholder="Email" name="emailId"  className="form-control" value={email} type="text" onChange={handleEmailChange}    />
@@ -76,6 +76,10 @@ const AddEmployee = () => {
           Cancel
         </button>
       </form>
+      <div className="row">---</div> <div className="row">***</div>
+      <div className="row col-md-12 ">
+         <button onClick={cancel} className="btn btn-warning pull-right">Back to list</button>
+      </div>
     </div>
   );
 };
