@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import EmployeeService from "../services/EmployeeService";
-import axios from "axios";
+//import axios from "axios";
+import { useHistory } from 'react-router-dom';
 
-export default function ListEmployeeComponent() {
+export default function ListEmployeeComponent(props) {
   const [employees, setEmployees] = useState([]);
-
+  const history = useHistory();
   /*
     async function getEmployees(){
         const response = await fetch('http://localhost:8080/api/v1/employee');
@@ -30,10 +31,16 @@ export default function ListEmployeeComponent() {
     getEmployeesFromServcieAxios();
   }, []);
 
+  function navigateToAddEmployee(){
+    history.push('/add-employee');
+  }
   return (
     <div>
       <h2 className="text-center">Employee List</h2>
       <div className="row">
+      <button className="btn btn-primary" onClick={navigateToAddEmployee}>Add Employee</button>
+      </div>
+      <div className="row">         
         <table className="table table-stripped table-bordered">
           <thead>
             <tr>

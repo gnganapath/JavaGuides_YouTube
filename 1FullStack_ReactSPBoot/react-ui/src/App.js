@@ -5,6 +5,7 @@ import "./App.css";
 import ListEmployeeComponent from "./components/ListEmployeeComponent";
 import FooterComponent from "./components/FooterComponent";
 import HeaderComponent from "./components/HeaderComponent";
+import AddEmployee from "./components/AddEmployee";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
         <div className="container">
           <Route path="/" exact component={ListEmployeeComponent} />
           <Route path="/employees" exact component={ListEmployeeComponent} />
-          {/* <ListEmployeeComponent /> */}
+          <Route path="/add-employee" exact component={AddEmployee} />
+         
         </div>
         <FooterComponent />
       </Router>
