@@ -16,6 +16,7 @@ import com.webfullstackdev.javaguides.service.EmployeeService;
 import com.webfullstackdev.javaguides.dao.EmployeeDao;
 
 @CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/v1")
 public class EmployeeController {
