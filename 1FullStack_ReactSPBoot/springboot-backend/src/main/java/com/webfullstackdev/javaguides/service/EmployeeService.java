@@ -1,11 +1,14 @@
 package com.webfullstackdev.javaguides.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.webfullstackdev.javaguides.dao.EmployeeDao;
 import com.webfullstackdev.javaguides.exception.ResourceNotFoundException;
@@ -53,5 +56,17 @@ public class EmployeeService {
 		
 	}
 	
+	// delete the employee from the list
+	
+	
+	 public ResponseEntity < Map < String, Boolean >> deleteEmployeeService( Long id) {
+	        Employee employee;
+	        employee = employeeRepository.findById(id).orElseThrow( () -> new ResourceNotFoundException("Employee does not exist wiht id :"+ id) );
+
+	        employeeRepository.delete(employee);
+	        Map < String, Boolean > response = new HashMap < > ();
+	        response.put("deleted", Boolean.TRUE);
+	        return ResponseEntity.ok(response);
+	    }
 }
 

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import EmployeeService from "../services/EmployeeService";
 
+// method 3 - define functional component = arrow function based
+
 const AddEmployee = () => {
   const [name, setName] = useState("");
   const [jobRole, setJobRole] = useState("");

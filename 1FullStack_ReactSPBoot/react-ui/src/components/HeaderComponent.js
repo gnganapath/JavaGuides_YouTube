@@ -1,5 +1,6 @@
 import React from "react";
 
+// method 1 - define functional component - export and function both are in same line
 export default function HeaderComponent() {
   return (
     <>
