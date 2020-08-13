@@ -10,5 +10,8 @@ rspb5:
 	 return employeeService.getAllEmployees();
 	}
 	
-	
-	
+rspb7:
+
+import 'bootstrap/dist/css/bootstrap.css'; at index.js after npm i bootstrap 
+
+To check in the app.css -gives errors. so, change to sass or less to import add.scss will give same result or error
