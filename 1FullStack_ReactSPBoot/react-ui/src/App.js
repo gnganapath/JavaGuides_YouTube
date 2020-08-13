@@ -1,5 +1,5 @@
 import React from "react";
-
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 
 import ListEmployeeComponent from "./components/ListEmployeeComponent";
@@ -9,12 +9,15 @@ import HeaderComponent from "./components/HeaderComponent";
 function App() {
   return (
     <div>
-    <HeaderComponent />
-    <div className="container">      
-        <ListEmployeeComponent />    
-     
-    </div>
-    <FooterComponent />
+      <Router>
+        <HeaderComponent />
+        <div className="container">
+          <Route path="/" exact component={ListEmployeeComponent} />
+          <Route path="/employees" exact component={ListEmployeeComponent} />
+          {/* <ListEmployeeComponent /> */}
+        </div>
+        <FooterComponent />
+      </Router>
     </div>
   );
 }

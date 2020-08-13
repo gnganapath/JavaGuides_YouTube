@@ -21,6 +21,7 @@ export default function ListEmployeeComponent() {
         console.log(res.data)
       setEmployees(res.data);
     });
+    // Simple way to call the axios service 
     // axios.get("http://localhost:8080/api/v1/employee").then((res) => {
     //   setEmployees(res.data);
     // });
