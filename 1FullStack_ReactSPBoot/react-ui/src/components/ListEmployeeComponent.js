@@ -47,7 +47,8 @@ export default function ListEmployeeComponent() {
   function DeleteEmployee(deleteID){
     EmployeeService.deleteEmployee(deleteID).then((response) =>{
       console.log(response);
-      setEmployees({employees: employees.filter(employee => employee.id !== deleteID)});
+      
+      setEmployees(employees.filter(employee => employee.id !== deleteID));
     });
 
   
