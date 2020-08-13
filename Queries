@@ -1,0 +1,14 @@
+rspb5:
+
+@GetMapping("/employee")
+	public List<Employee> getAllCourses(){
+	 return employeeService.getAllEmployees();
+	}
+	
+	@GetMapping("/employee")
+	public  ResponseEntity getAllCourses(){     giving error  OR new ArrayList(<>) need to add for this case
+	 return employeeService.getAllEmployees();
+	}
+	
+	
+	
