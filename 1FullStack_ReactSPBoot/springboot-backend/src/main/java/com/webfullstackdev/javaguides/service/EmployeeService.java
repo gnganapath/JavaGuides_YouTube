@@ -37,13 +37,16 @@ public class EmployeeService {
 	//Put - update	
 	public ResponseEntity<Employee> updateEmpoyeeID(Long id, Employee updateEmpDetail){
 		
-		Employee employee;
-		
+		Employee employee;		
+		//find the updated employee by id
 		employee = employeeRepository.findById(id).orElseThrow( () -> new ResourceNotFoundException("Employee does not exist wiht id :"+ id) );
+		
+		// from DAO set update details of employee -> Employee  employee -id 
+		// receving employee also ref DAO and it has getPropery updateMepDetail - get(),,...
 		employee.setFullName(updateEmpDetail.getFullName());
 		employee.setEmailId(updateEmpDetail.getEmailId());
 		employee.setJobRole(updateEmpDetail.getJobRole());
-		
+		// override the DB with new record except Employee id
 		Employee updatedEmployee = employeeRepository.save(employee);
 		
 		return ResponseEntity.ok(updatedEmployee);
