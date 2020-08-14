@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from 'react-router-dom';
 import EmployeeService from "../services/EmployeeService";
-import {withRouter, RouteComponentProps} from "react-router";
+
+
 // method 2 - define functional component - Define with function and default export at the bottom of component
-function UpdateEmployee(props: MyComponentProps){
+function UpdateEmployee(props){
     const [employeeId, setEmployeeId] = useState("");
     const history = useHistory();
     
@@ -38,8 +39,4 @@ function UpdateEmployee(props: MyComponentProps){
     )
 }
 
-interface MyComponentProps extends RouteComponentProps {
-    myField: string;
-}
-
-export default withRouter(UpdateEmployee);
+export default UpdateEmployee;

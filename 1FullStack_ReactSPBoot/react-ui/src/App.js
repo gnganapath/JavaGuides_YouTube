@@ -1,5 +1,4 @@
 import React from "react";
-import { useParams} from "react-router";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 
@@ -20,7 +19,7 @@ function App() {
           <Route path="/" exact component={ListEmployeeComponent} />
           <Route path="/employees" exact component={ListEmployeeComponent} />
           <Route path="/add-employee" exact component={AddEmployee} />
-          <Route path="/update-employee/:id" exact render={({ match }) => <UpdateEmployee match={match} ></UpdateEmployee>} ></Route>
+          <Route path="/update-employee/:id" exact component= {UpdateEmployee} />
         </Switch>
         </div>
         <FooterComponent />
