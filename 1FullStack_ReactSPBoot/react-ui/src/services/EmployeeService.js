@@ -12,6 +12,10 @@ class  EmployeeService
     createEmployee( employee ){
         return axios.post(EMPLOYEE_API_BASE_URL, employee );
     }
+    //http GET with url Params in API call
+    getEmployeesById(empId){
+        return axios.get(EMPLOYEE_API_BASE_URL+'/'+empId);
+    }
     // http PUT
     updateEmployee( employeeId, employeeUpdateDetails ){
         return axios.put(EMPLOYEE_API_BASE_URL+'/'+employeeId, employeeUpdateDetails);
