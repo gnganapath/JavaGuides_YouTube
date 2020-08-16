@@ -15,3 +15,45 @@ rspb7:
 import 'bootstrap/dist/css/bootstrap.css'; at index.js after npm i bootstrap 
 
 To check in the app.css -gives errors. so, change to sass or less to import add.scss will give same result or error
+
+
+Almigthyjava YouTube
+********************
+React and Spring boot - 19 video
+===============================
+video 1
+-------
+React installation & hello world
+
+video 2
+------- 
+book-rest-api spring boot demo  to be middle ware ready project
+
+video 3
+--------
+Class based components -
+Navbar developement
+
+install react bootstrap 
+build the nav bar with 
+Router setup libraries.. just reference based
+
+video 4
+--------
+table - list of books and form submit 
+
+video 5 
+--------
+axios - get, post, delete, put, patch
+react life cycle method
+contructor - componet before mount
+render() is only method required in class based components
+componentDidMount() - trigger immediately after component is mounted
+componentDidUpdate() - component get updated called
+componentWillUnmount() - kind of garbase collection
+
+design table view , edit delete button
+
+video 6
+------
+
