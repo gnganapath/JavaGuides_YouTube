@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,6 +24,7 @@ import com.webfullstackdev.javaguides.service.EmployeeService;
 import com.webfullstackdev.javaguides.dao.EmployeeDao;
 import com.webfullstackdev.javaguides.exception.ResourceNotFoundException;
 
+@ApiOperation(value = "/api/v1/employees", tags = "Employee Profile Controller", notes = "Employee Profile API")
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/v1")
@@ -32,7 +34,7 @@ public class EmployeeController {
 	EmployeeService employeeService;
 
 	//------------------------------------------------------------------------
-	
+	@ApiOperation(value = "Get Employee list from swagger", response = Employee.class)
 	// get All employee rest API
 	// Calling crtl -> service -> Dao.findAll() 
 	@GetMapping("/employees")
@@ -41,7 +43,7 @@ public class EmployeeController {
 	}
 	
 	//------------------------------------------------------------------------
-	
+	@ApiOperation(value = "add Employee ", response = Employee.class)
 	// create new Employee rest API 
 	@PostMapping("/employees")
 	public Employee createEmployee(@RequestBody Employee employee) {
@@ -50,13 +52,14 @@ public class EmployeeController {
 	}
 
 	//------------------------------------------------------------------------
-		
+	@ApiOperation(value = "Fetch Employee by ID", response = Employee.class)
 	// get employee by Id rest API 
 	@GetMapping("/employees/{id}")
 	public ResponseEntity<Employee> getEmployeeId(@PathVariable Long id) {
 		return employeeService.findEmployeeId(id);
-	}	
+	}
 
+	@ApiOperation(value = "update Employee by ID", response = Employee.class)
 	//------------------------------------------------------------------------
 	// update  employeId based - findById, Save updated detail - rest API 
 	@PutMapping("/employees/{id}")	
@@ -64,8 +67,8 @@ public class EmployeeController {
 	public ResponseEntity<Employee> updateExitingEmployee(@PathVariable Long id,@RequestBody Employee employee ){
 		return employeeService.updateEmpoyeeID(id,employee);
 	}
-	
-	
+
+	@ApiOperation(value = "Delete from  Employee list by  employee ID", response = Employee.class)
 	 // delete employee rest api
     @DeleteMapping("/employees/{id}")
     public ResponseEntity < Map < String, Boolean >> deleteEmployee(@PathVariable Long id) {
