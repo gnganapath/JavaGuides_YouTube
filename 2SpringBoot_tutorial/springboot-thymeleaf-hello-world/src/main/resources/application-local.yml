@@ -8,7 +8,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create-drop
-  profilemessage: "test profile message"
+  profilemessage: profile message from local yaml
 
 # Actuator - Manage and moniter health check
 management:

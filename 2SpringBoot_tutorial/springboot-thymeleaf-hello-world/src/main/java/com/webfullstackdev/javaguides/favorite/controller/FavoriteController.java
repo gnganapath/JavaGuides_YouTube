@@ -2,10 +2,13 @@ package com.webfullstackdev.javaguides.favorite.controller;
 
 import com.webfullstackdev.javaguides.favorite.model.Favorite;
 import com.webfullstackdev.javaguides.favorite.service.FavoriteService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.thymeleaf.templateparser.markup.decoupled.IDecoupledTemplateLogicResolver;
 
 import java.util.List;
 import java.util.Map;
@@ -48,5 +51,15 @@ public class FavoriteController {
     @DeleteMapping("/favorites/{id}")
     public ResponseEntity<Map< String, Boolean >> deleteFavorite(@PathVariable Long id){
         return favoriteService.deleteFavService(id);
+    }
+
+    // profile message from applicaiton
+    @Value("${spring.profilemessage}")
+    private String message;
+
+    @ApiOperation(value = "profile variable e.g", response = Iterable.class)
+    @GetMapping("/profile")
+    public String HelloProfile(){
+        return message;
     }
 }
