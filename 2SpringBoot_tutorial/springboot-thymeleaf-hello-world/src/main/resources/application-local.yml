@@ -1,0 +1,16 @@
+# data source - DB connection string with Maria DB
+spring:
+  datasource:
+     url: jdbc:mariadb://localhost:3306/javaguides
+     username: root
+     password: root
+     driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+# Actuator - Manage and moniter health check
+#management:
+#  security:
+#    enabled: false
+

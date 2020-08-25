@@ -8,7 +8,7 @@ public class Favorite {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int favoriteId;
+    private long favoriteId;
 
     @Column(name="USER_ID")
     private String userId;
@@ -28,7 +28,7 @@ public class Favorite {
         this.linkName = linkName;
     }
 
-    public int getFavoriteId() {
+    public long getFavoriteId() {
         return favoriteId;
     }
 
