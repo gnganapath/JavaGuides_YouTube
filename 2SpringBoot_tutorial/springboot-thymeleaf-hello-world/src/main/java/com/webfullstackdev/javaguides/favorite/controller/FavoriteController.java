@@ -12,7 +12,7 @@ import org.thymeleaf.templateparser.markup.decoupled.IDecoupledTemplateLogicReso
 
 import java.util.List;
 import java.util.Map;
-@ApiOperation(value = "/api/favorites", tags = "Employee Profile Controller", notes = "favorites  API")
+@ApiOperation(value = "/api/favorites", tags = "USer profile Controller", notes = "favorites  API")
 @RestController
 @RequestMapping("/api")
 public class FavoriteController {
@@ -37,19 +37,19 @@ public class FavoriteController {
 
     @ApiOperation(value = "Get specific favorites list from swagger", response = Favorite.class)
     @GetMapping("/favorites/{id}")
-    public ResponseEntity<Favorite> viewFavorite(@PathVariable Long id){
+    public ResponseEntity<Favorite> viewFavorite(@PathVariable String id){
         return favoriteService.viewFavoriteService(id);
     }
 
     @ApiOperation(value = "Updte favorites list from swagger", response = Favorite.class)
     @PutMapping("/favorites/{id}")
-    public ResponseEntity<Favorite> updateFavorite(@PathVariable Long id,@RequestBody Favorite favorite ){
+    public ResponseEntity<Favorite> updateFavorite(@PathVariable String id,@RequestBody Favorite favorite ){
         return favoriteService.updateFavoriteService(id,favorite);
     }
 
     @ApiOperation(value = "Delete favorites list from swagger", response = Favorite.class)
     @DeleteMapping("/favorites/{id}")
-    public ResponseEntity<Map< String, Boolean >> deleteFavorite(@PathVariable Long id){
+    public ResponseEntity<Map< String, Boolean >> deleteFavorite(@PathVariable String id){
         return favoriteService.deleteFavService(id);
     }
 

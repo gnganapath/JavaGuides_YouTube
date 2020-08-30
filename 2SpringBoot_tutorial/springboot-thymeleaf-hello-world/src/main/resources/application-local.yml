@@ -5,10 +5,21 @@ spring:
      username: root
      password: root
      driver-class-name: org.mariadb.jdbc.Driver
+  profilemessage: profile message from local yaml
+
   jpa:
     hibernate:
       ddl-auto: create-drop
-  profilemessage: profile message from local yaml
+      naming:
+        #physical-strategy:  com.webfullstackdev.javaguides.config.CustomPhysicalNamingStrategy
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        #implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        #https://www.baeldung.com/hibernate-field-naming-spring-boot
+
+  properties:
+    show_sql: true
+    format_sql: true
+    use_sql: true
 
 # Actuator - Manage and moniter health check
 management:

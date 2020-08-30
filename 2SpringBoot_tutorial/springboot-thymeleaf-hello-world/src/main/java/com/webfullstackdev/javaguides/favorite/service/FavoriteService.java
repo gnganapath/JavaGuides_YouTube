@@ -28,27 +28,27 @@ public class FavoriteService {
         return favoriteDao.save(favorite);
     }
 
-    public ResponseEntity<Favorite> viewFavoriteService(Long favoriteId){
+    public ResponseEntity<Favorite> viewFavoriteService(String favoriteId){
         Favorite favorite;
-        favorite = favoriteDao.findById(favoriteId).orElseThrow();
+        favorite = favoriteDao.findFirstByFavoriteId(favoriteId); //.orElseThrow();
         return ResponseEntity.ok(favorite);
     }
 
-    public ResponseEntity<Favorite> updateFavoriteService( Long id, Favorite favoriteUpdate){
+    public ResponseEntity<Favorite> updateFavoriteService( String id, Favorite favoriteUpdate){
         Favorite  favorite;
-        favorite = favoriteDao.findById(id).orElseThrow();
+        favorite = favoriteDao.findFirstByFavoriteId(id);//.orElseThrow();
 
         favorite.setUserId(favoriteUpdate.getUserId());
-        favorite.setLinkName(favoriteUpdate.getLinkName());
+        favorite.setLink(favoriteUpdate.getLink());
         favorite.setPath(favoriteUpdate.getPath());
 
         Favorite favoriteClone = favoriteDao.save(favorite);
         return ResponseEntity.ok(favoriteClone);
     }
 
-    public ResponseEntity<Map< String, Boolean>> deleteFavService(Long favid){
+    public ResponseEntity<Map< String, Boolean>> deleteFavService(String favid){
         Favorite  favorite;
-        favorite = favoriteDao.findById(favid).orElseThrow();
+        favorite = favoriteDao.findFirstByFavoriteId(favid);//.orElseThrow();
 
         favoriteDao.delete(favorite);
         Map < String, Boolean > response = new HashMap< >();

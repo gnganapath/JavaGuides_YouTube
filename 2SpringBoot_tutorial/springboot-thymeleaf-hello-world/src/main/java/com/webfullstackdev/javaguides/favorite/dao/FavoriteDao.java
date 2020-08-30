@@ -2,6 +2,9 @@ package com.webfullstackdev.javaguides.favorite.dao;
 
 import com.webfullstackdev.javaguides.favorite.model.Favorite;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface FavoriteDao extends JpaRepository<Favorite, Long> {
+    Favorite findFirstByFavoriteId(String favId);
 }
